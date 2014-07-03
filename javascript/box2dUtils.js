@@ -101,6 +101,21 @@
                 fixDef.friction =  1.0;
             }
 
+            switch(userData.name) {
+                case 'enemy':
+                    fixDef.filter.categoryBits = CATEGORY_MONSTER;
+                    fixDef.filter.maskBits = MASK_MONSTER;
+                    break;
+                case 'player':
+                    fixDef.filter.categoryBits = CATEGORY_PLAYER; 
+                    fixDef.filter.maskBits = MASK_PLAYER;
+                    break;
+                default:
+                    fixDef.filter.categoryBits = CATEGORY_SCENERY;
+                    fixDef.filter.maskBits = MASK_SCENERY;
+                    break;
+            }
+
             return world.CreateBody(bodyDef).CreateFixture(fixDef);
         },
 

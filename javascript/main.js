@@ -14,6 +14,14 @@ window.onload = function() {
     console.log(game);
 }
 
+var CATEGORY_PLAYER = 0x0001;
+var CATEGORY_MONSTER = 0x0002;
+var CATEGORY_SCENERY = 0x0004;
+
+var MASK_PLAYER = CATEGORY_SCENERY | CATEGORY_MONSTER;
+var MASK_SCENERY = -1;
+var MASK_MONSTER = CATEGORY_PLAYER | CATEGORY_SCENERY;
+
 function Game() {
     //Permet d'enlever certains "mauvais" côtés du JS
     "use strict";
