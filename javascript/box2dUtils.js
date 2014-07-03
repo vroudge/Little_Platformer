@@ -116,7 +116,7 @@
                 if(typeof userData.img === 'string') {
                     if(userData['img'] != undefined) {
                         var image = new Image();
-                        image.src = userData.img;
+                        image.src = "images/"+userData.img;
                         userData.img = image;
                     }
                 }
