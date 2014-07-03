@@ -39,7 +39,7 @@ function enemyLibrary(param, box2dutils, context) {
         };
 
         
-        enemy = box2dutils.createBox(param.world, 300, 100, 10, 10, 0, false, enemyUserData); 
+        enemy = box2dutils.createBox(param.world, 300, 50, 10, 10, 0, false, enemyUserData); 
         enemy.GetBody().SetFixedRotation(true);
         param.enemies.push(enemy);
         param.gameObjects.push(enemy);

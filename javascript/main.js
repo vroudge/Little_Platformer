@@ -41,9 +41,6 @@ function Game() {
 
     var dev = true;
 
-    //var img = new Image();
-    //img.src = "images/hud_p1.png";
-
     //Pour pouvoir appeller Game peu importe le scope
     var that = this;
 
@@ -305,14 +302,22 @@ function Game() {
             if(obj1.m_userData.name === 'littlePlatform') {
                 if(obj2.m_userData.name === 'player') {
                     obj1.m_isSensor = true;
+                    param.isColliding = true;
+                } else if(param.isColliding === true && obj2.m_userData === 'footPlayer') {
+                    obj1.m_isSensor = true
                 } else if(obj2.m_userData.name != 'player') {
                     obj1.m_isSensor = false;
+                    param.isColliding = false;
                 }
             } else if(obj2.m_userData.name === 'littlePlatform') {
                 if(obj1.m_userData.name === 'player') {
                     obj1.m_isSensor = true;
+                    param.isColliding = true;
+                } else if(param.isColliding === true && obj1.m_userData === 'footPlayer') {
+                    obj2.m_isSensor = true
                 } else if(obj1.m_userData.name != 'player') {
                     obj2.m_isSensor = false;
+                    param.isColliding = false;
                 }
             }
    

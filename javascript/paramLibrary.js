@@ -20,6 +20,7 @@ function paramLibrary() {
         "imagesSrc": [
         {name:"hudp1", src:"images/hud_p1.png"}
         ],
-        "images": []
+        "images": [],
+        "isColliding": false
     }
 }

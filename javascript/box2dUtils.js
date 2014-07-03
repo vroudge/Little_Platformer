@@ -106,6 +106,10 @@
                     fixDef.filter.categoryBits = CATEGORY_MONSTER;
                     fixDef.filter.maskBits = MASK_MONSTER;
                     break;
+                case 'collectible':
+                    fixDef.filter.categoryBits = CATEGORY_MONSTER;
+                    fixDef.filter.maskBits = MASK_MONSTER;
+                    break;
                 case 'player':
                     fixDef.filter.categoryBits = CATEGORY_PLAYER; 
                     fixDef.filter.maskBits = MASK_PLAYER;

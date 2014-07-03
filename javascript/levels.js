@@ -115,34 +115,52 @@ function levelLibrary() {
                     "name": "wall"
                 },
                 "5": {
-                    "x": 100,
-                    "y": 450,
+                    "x": 300,
+                    "y": 100,
                     "angle": 0,
                     "name": "littlePlatform"
                 },
                 "6": {
-                    "x": 500,
-                    "y": 450,
+                    "x": 300,
+                    "y": 200,
                     "angle": 0,
                     "name": "littlePlatform"
                 },
                 "7": {
                     "x": 300,
-                    "y": 325,
-                    "angle": 0,
-                    "name": "littlePlatform"
-                },
-                "8": {
-                    "x": 25,
                     "y": 175,
                     "angle": 0,
                     "name": "win"
                 },
+                "8": {
+                    "x": 150,
+                    "y": 200,
+                    "angle": 0,
+                    "name": "littlePlatform"
+                },
                 "9": {
+                    "x": 450,
+                    "y": 200,
+                    "angle": 0,
+                    "name": "littlePlatform"
+                },
+                "10": {
+                    "x": 500,
+                    "y": 300,
+                    "angle": 0,
+                    "name": "littlePlatform"
+                },
+                "11": {
+                    "x": 100,
+                    "y": 300,
+                    "angle": 0,
+                    "name": "littlePlatform"
+                },
+                "12": {
                     "x": 300,
                     "y": 400,
                     "angle": 0,
-                    "name": "collectible"
+                    "name": "littlePlatform"
                 }
             }
         }
