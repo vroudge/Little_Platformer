@@ -58,7 +58,7 @@ function levelLibrary() {
                 },
                 "10": {
                     "x": 25,
-                    "y": 150,
+                    "y": 175,
                     "angle": 0,
                     "name": "win"
                 },

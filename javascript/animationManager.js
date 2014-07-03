@@ -7,7 +7,7 @@ function AnimationManager(param, context){
 	this.speed = 10; //vitesse d'animation du personnage
 
 	this.updateObjects = function(){
-		this.objectsTab = param.gameObjects;
+		this.objectsTab = param.objectDrawTab;
 	}
 
 	this.displayImagesLoop = function(){
@@ -19,7 +19,6 @@ function AnimationManager(param, context){
 			var currentBodyUserData = currentInTab.GetUserData();
 
 			if(currentInTab.m_userData != "player") {
-				
 				context.save();
 				context.translate(currentBodyPosition.x * 30, currentBodyPosition.y * 30);
 				context.rotate(currentBody.GetAngle());

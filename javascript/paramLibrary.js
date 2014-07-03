@@ -3,7 +3,7 @@ function paramLibrary() {
         "currentLevel": 0,
         "world": {},
         "scale": 30, 
-        "objectTab": [],
+        "objectDrawTab": [],
         "level": 0,
         "gameObjects": [],
         "player": null,

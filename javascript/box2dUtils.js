@@ -139,7 +139,7 @@
         //Création du player
         createPlayer : function(world, x, y, width, height, angle, fixed, userData) {
             // Créer le body player
-            var playerObject = this.createBall(world, x, y, 20, false, userData);
+            var playerObject = this.createBox(world, x, y, width, height, null, false, userData);
             playerObject.SetDensity(2);
             playerObject.SetRestitution(0.2);
             playerObject.SetFriction(0);
@@ -152,7 +152,7 @@
             footDef.userData = 'footPlayer';
             footDef.shape = new b2PolygonShape();
             footDef.shape.SetAsOrientedBox(10 / 30, 10 / 30, 
-                    new b2Vec2(0, 20 / 1.8 / 30),   // position par rapport centre du body
+                    new b2Vec2(0, 25 / 1.8 / 30),   // position par rapport centre du body
                     0                                           // angle d'orientation
             );
             

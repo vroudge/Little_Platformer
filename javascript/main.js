@@ -64,8 +64,13 @@ function Game() {
             case "restartLevel":
                 box2dUtils.destroyObject(param.world, param.gameObjects);
                 box2dUtils.destroyObject(param.world, param.enemies);
+                box2dUtils.destroyObject(param.world, param.objectDrawTab);
+
                 param.player = box2dUtils.createPlayer(param.world, 30, 10, 15, 25, 0, false, "player");
+                
                 param.gameObjects.push(param.player);
+                param.objectDrawTab.push(param.player);
+                
                 enemy.spawn();
                 that.createLevel();
                 break;
@@ -75,8 +80,13 @@ function Game() {
                     param.level++;
                     box2dUtils.destroyObject(param.world, param.gameObjects);
                     box2dUtils.destroyObject(param.world, param.enemies);
+                    box2dUtils.destroyObject(param.world, param.objectDrawTab);
+
                     param.player = box2dUtils.createPlayer(param.world, 30, 10, 15, 25, 0, false, "player");
+                    
                     param.gameObjects.push(param.player);
+                    param.objectDrawTab.push(param.player);
+                    
                     enemy.spawn();
                     that.createLevel();
                     document.getElementById("next_level").style.visibility = "hidden";
@@ -123,6 +133,7 @@ function Game() {
 
             var bodyDef = box2dUtils.createBox(param.world, x, y, width, height, angle, fixed, objectData[name].userData);
             param.gameObjects.push(bodyDef);
+            param.objectDrawTab.push(bodyDef);
         };
 
         state.setState("inGame");
@@ -131,7 +142,7 @@ function Game() {
 
     this.isPlayer = function(object) {
         if(object != null && object.GetUserData() != null)
-            return object.GetUserData() === 'player' || object.GetUserData() === 'footPlayer';
+            return object.GetUserData().name === 'player' || object.GetUserData() === 'footPlayer';
     }
 
     this.isEnemy = function(object) {
@@ -160,8 +171,8 @@ function Game() {
                     state.setState("nextLevel");
 
                 //En utilisant la vélocité
-
-               /* if(param.velocity.y > 0) {
+/*
+               if(param.velocity.y > 0) {
                     if(obj1.m_userData === 'littlePlatform') {
                         obj1.m_isSensor = false;
                     } else if(obj2.m_userData === 'littlePlatform') {
@@ -180,6 +191,7 @@ function Game() {
                     for (var i = param.gameObjects.length - 1; i >= 0; i--) {
                         if(param.gameObjects[i] === obj1) {
                             param.gameObjects.splice(i, 1);
+                            param.objectDrawTab.splice(i, 1);
                         }
                     };
                     param.score += 10;
@@ -188,6 +200,7 @@ function Game() {
                     for (var i = param.gameObjects.length - 1; i >= 0; i--) {
                         if(param.gameObjects[i] === obj2) {
                             param.gameObjects.splice(i, 1);
+                            param.objectDrawTab.splice(i, 1);
                         }
                     };
                     param.score += 10;
@@ -222,8 +235,7 @@ function Game() {
             }
 
             //En utilisant les différentes parties du corps du player 
-
-            if(obj1.m_userData === 'player' || obj2.m_userData === 'player'){
+            if(obj1.m_userData.name === 'player' || obj2.m_userData.name === 'player'){
                 if(obj1.m_userData.name === 'littlePlatform') {
                     obj1.m_isSensor = true;
                 } else if(obj2.m_userData.name === 'littlePlatform') {
@@ -316,12 +328,18 @@ function Game() {
 
         param.world = box2dUtils.createWorld(context);
 
-        param.player = box2dUtils.createPlayer(param.world, 30, 500, 15, 25, 0, false, "player");
-        param.gameObjects.push(param.player);
+        var playerUserData = {
+            "name": "player",
+            "img": "p1_front.png"
+        }
 
-        /*setInterval(function() {
+        param.player = box2dUtils.createPlayer(param.world, 30, 500, 15, 20, 0, false, playerUserData);
+        param.gameObjects.push(param.player);
+        param.objectDrawTab.push(param.player);
+
+        setInterval(function() {
            enemy.spawn();
-        }, 5000);*/
+        }, 5000);
 
         that.addContactListener();
 

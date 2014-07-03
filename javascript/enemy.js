@@ -34,13 +34,16 @@ function enemyLibrary(param, box2dutils, context) {
 
         var enemyUserData = {
             "name": 'enemy',
-            "direction": direction
+            "direction": direction,
+            "img": "slimeWalk1.png"
         };
 
         
         enemy = box2dutils.createBox(param.world, 300, 100, 10, 10, 0, false, enemyUserData); 
         enemy.GetBody().SetFixedRotation(true);
         param.enemies.push(enemy);
+        param.gameObjects.push(enemy);
+        param.objectDrawTab.push(enemy);
 
        /* setInterval(function() {
            that.spawn();
