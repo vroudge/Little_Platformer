@@ -41,6 +41,9 @@ function Game() {
 
     var dev = true;
 
+    //var img = new Image();
+    //img.src = "images/hud_p1.png";
+
     //Pour pouvoir appeller Game peu importe le scope
     var that = this;
 
@@ -53,7 +56,11 @@ function Game() {
 
     this.draw = function() {
         context.fillStyle = "white";
-        context.fillText("Life:"+param.life, 10, 20);
+        for (var i = param.life - 1; i >= 0; i--) {
+            context.drawImage(param.images[0], 90+(i*30), 2, 20, 20);
+        }
+
+        context.fillText("Life:", 10, 20);
         context.fillText("Score:"+param.score, 475, 20);
     }
 
@@ -126,8 +133,47 @@ function Game() {
                 enemy.move();
                 break;
             case "gameOver":
+                document.getElementById("game_over").style.visibility = "visible";
+                if(param.keys[13] === true) {
+                    param.level = 1;
+                    param.life = 3;
+                    param.score = 0;
+
+                    box2dUtils.destroyObject(param.world, param.gameObjects);
+                    box2dUtils.destroyObject(param.world, param.enemies);
+                    box2dUtils.destroyObject(param.world, param.objectDrawTab);
+
+                    var playerUserData = {
+                        "name": "player",
+                        "img": "p1_front.png"
+                    }
+
+                    param.player = box2dUtils.createPlayer(param.world, 30, 500, 15, 20, 0, false, playerUserData);
+                    
+                    param.gameObjects.push(param.player);
+                    param.objectDrawTab.push(param.player);
+                    
+                    enemy.spawn();
+                    that.createLevel();
+                    document.getElementById("game_over").style.visibility = "hidden";
+                }
                 break;
         }
+    }
+
+    this.loadImages = function() {
+        var count = 0;
+
+        for (var i = param.imagesSrc.length - 1; i >= 0; i--) {
+            var img = new Image();
+            img.src = param.imagesSrc[i].src;
+            img.name = param.imagesSrc[i].name;
+            img.onload = function() {
+                count++;
+            }
+
+            param.images.push(img);
+        };
     }
 
     this.createLevel = function() {
@@ -181,8 +227,12 @@ function Game() {
                     param.jumpContacts = 1;
 
                 if(that.isEnemy(obj1) || that.isEnemy(obj2)) {
-                    state.setState("restartLevel");
                     param.life--;
+                    if(param.life === 0) {
+                        state.setState("gameOver");
+                    } else {
+                        state.setState("restartLevel");
+                    }
                 }
 
                 if(obj2.m_userData.name === 'win' || obj1.m_userData.name === 'win')
@@ -371,9 +421,11 @@ function Game() {
         param.gameObjects.push(param.player);
         param.objectDrawTab.push(param.player);
 
+        that.loadImages();
+/*
         setInterval(function() {
            enemy.spawn();
-        }, 5000);
+        }, 5000);*/
 
         that.addContactListener();
 

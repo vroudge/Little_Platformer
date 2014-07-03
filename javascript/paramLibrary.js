@@ -16,6 +16,10 @@ function paramLibrary() {
         "random": 0,
         "destroys": [],
         "score": 0,
-        "life": 3
+        "life": 3,
+        "imagesSrc": [
+        {name:"hudp1", src:"images/hud_p1.png"}
+        ],
+        "images": []
     }
 }

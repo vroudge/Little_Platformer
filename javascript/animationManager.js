@@ -37,7 +37,7 @@ function AnimationManager(param, context){
 								dataResize.image, 
 								-dataResize.imgWidth/2, //img pos x
 								-dataResize.imgHeight/2, //img pos y
-								dataResize.imgWidth, //img wdith
+								dataResize.imgWidth, //img width
 								dataResize.imgHeight //img height
 							);
 					}
@@ -46,7 +46,7 @@ function AnimationManager(param, context){
 								dataResize.image, 
 								-dataResize.imgWidth/2, //img pos x
 								-dataResize.imgHeight/2, //img pos y
-								dataResize.imgWidth, //img wdith
+								dataResize.imgWidth, //img width
 								dataResize.imgHeight //img height
 							);
 				context.restore();
