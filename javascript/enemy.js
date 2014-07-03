@@ -55,8 +55,4 @@ function enemyLibrary(param, box2dutils, context) {
             param.enemies.push(enemy);
         }, 5000);*/
     }
-
-    this.changeDirection = function() {
-
-    }
 }
