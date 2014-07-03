@@ -19,6 +19,7 @@ function AnimationManager(param, context){
 			var currentBodyUserData = currentInTab.GetUserData();
 
 			if(currentInTab.m_userData != "player") {
+
 				context.save();
 				context.translate(currentBodyPosition.x * 30, currentBodyPosition.y * 30);
 				context.rotate(currentBody.GetAngle());
@@ -29,6 +30,17 @@ function AnimationManager(param, context){
 									   'imgWidth' : currentInTab.m_shape.m_vertices[2].x*60,
 									   'imgHeight': currentInTab.m_shape.m_vertices[2].y*60
 					};
+
+					if(currentInTab.m_userData.name === 'enemy' && currentInTab.m_userData.direction === 'droite') {
+						context.scale(-1, 1);
+						context.drawImage(
+								dataResize.image, 
+								-dataResize.imgWidth/2, //img pos x
+								-dataResize.imgHeight/2, //img pos y
+								dataResize.imgWidth, //img wdith
+								dataResize.imgHeight //img height
+							);
+					}
 
 					context.drawImage(
 								dataResize.image, 

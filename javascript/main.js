@@ -66,7 +66,12 @@ function Game() {
                 box2dUtils.destroyObject(param.world, param.enemies);
                 box2dUtils.destroyObject(param.world, param.objectDrawTab);
 
-                param.player = box2dUtils.createPlayer(param.world, 30, 10, 15, 25, 0, false, "player");
+                var playerUserData = {
+                    "name": "player",
+                    "img": "p1_front.png"
+                }
+
+                param.player = box2dUtils.createPlayer(param.world, 30, 500, 15, 20, 0, false, playerUserData);
                 
                 param.gameObjects.push(param.player);
                 param.objectDrawTab.push(param.player);
@@ -82,7 +87,12 @@ function Game() {
                     box2dUtils.destroyObject(param.world, param.enemies);
                     box2dUtils.destroyObject(param.world, param.objectDrawTab);
 
-                    param.player = box2dUtils.createPlayer(param.world, 30, 10, 15, 25, 0, false, "player");
+                    var playerUserData = {
+                        "name": "player",
+                        "img": "p1_front.png"
+                    }
+
+                    param.player = box2dUtils.createPlayer(param.world, 30, 500, 15, 20, 0, false, playerUserData);
                     
                     param.gameObjects.push(param.player);
                     param.objectDrawTab.push(param.player);
@@ -234,14 +244,30 @@ function Game() {
                 }
             }
 
+            if(obj1.m_userData.name === 'littlePlatform') {
+                if(obj2.m_userData.name === 'player') {
+                    obj1.m_isSensor = true;
+                } else if(obj2.m_userData.name != 'player') {
+                    obj1.m_isSensor = false;
+                }
+            } else if(obj2.m_userData.name === 'littlePlatform') {
+                if(obj1.m_userData.name === 'player') {
+                    obj1.m_isSensor = true;
+                } else if(obj1.m_userData.name != 'player') {
+                    obj2.m_isSensor = false;
+                }
+            }
+   
             //En utilisant les différentes parties du corps du player 
-            if(obj1.m_userData.name === 'player' || obj2.m_userData.name === 'player'){
+            /* if(obj1.m_userData.name === 'player' || obj2.m_userData.name === 'player'){
                 if(obj1.m_userData.name === 'littlePlatform') {
                     obj1.m_isSensor = true;
                 } else if(obj2.m_userData.name === 'littlePlatform') {
                     obj2.m_isSensor = true;                     
                 }
-            } else if(obj1.m_userData === 'footPlayer' || obj2.m_userData === 'footPlayer'){
+            } else if(o
+
+            else if(obj1.m_userData === 'footPlayer' || obj2.m_userData === 'footPlayer'){
                 if(obj1.m_userData.name === 'littlePlatform') {
                     obj1.m_isSensor = false;
                 } else if(obj2.m_userData.name === 'littlePlatform') {
@@ -253,7 +279,7 @@ function Game() {
                 } else if(obj2.m_userData.name === 'littlePlatform') {
                     obj2.m_isSensor = true;                     
                 }
-            }
+            }*/
 
         }   
     

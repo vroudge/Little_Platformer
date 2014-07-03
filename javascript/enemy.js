@@ -44,15 +44,5 @@ function enemyLibrary(param, box2dutils, context) {
         param.enemies.push(enemy);
         param.gameObjects.push(enemy);
         param.objectDrawTab.push(enemy);
-
-       /* setInterval(function() {
-           that.spawn();
-        }, 5000);*/
-
-       /*setInterval(function() {
-           var enemy = box2dutils.createBox(param.world, 300, 100, 10, 10, 0, false, enemyUserData); 
-            enemy.GetBody().SetFixedRotation(true);
-            param.enemies.push(enemy);
-        }, 5000);*/
     }
 }
