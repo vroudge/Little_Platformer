@@ -236,8 +236,9 @@
                         if(f.m_userData.name === "littlePlatform" && param.keys[90] && param.useGrapple === true) {
                             this.createGrapple(param, f);
                         } // En utilisant le raycast
-                        /*else if(f.m_userData.name === "littlePlatform" || param.useGrapple === true) {
-                            f.m_isSensor = true; 
+
+                        /*else if(f.m_userData.name === "littlePlatform") {
+                            f.m_isSensor = true;
                             console.log('coucou')
                         }*/
                     }
