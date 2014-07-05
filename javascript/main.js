@@ -236,16 +236,17 @@ function Game() {
                     state.setState("nextLevel");
 
                 //En utilisant la vélocité
-               /*if(param.velocity.y > 0) {
-                    if(obj1.m_userData.name === 'littlePlatform') {
+/*
+               if(param.velocity.y > 0) {
+                    if(obj1.m_userData === 'littlePlatform') {
                         obj1.m_isSensor = false;
-                    } else if(obj2.m_userData.name === 'littlePlatform') {
+                    } else if(obj2.m_userData === 'littlePlatform') {
                         obj2.m_isSensor = false;                     
                     }
                 } else if(param.velocity.y < 0) {
-                    if(obj1.m_userData.name === 'littlePlatform') {
+                    if(obj1.m_userData === 'littlePlatform') {
                         obj1.m_isSensor = true;
-                    } else if(obj2.m_userData.name === 'littlePlatform') {
+                    } else if(obj2.m_userData === 'littlePlatform') {
                         obj2.m_isSensor = true;                     
                     }
                 }*/
@@ -327,7 +328,9 @@ function Game() {
                 } else if(obj2.m_userData.name === 'littlePlatform') {
                     obj2.m_isSensor = true;                     
                 }
-            } else if(obj1.m_userData === 'footPlayer' || obj2.m_userData === 'footPlayer'){
+            } else if(o
+
+            else if(obj1.m_userData === 'footPlayer' || obj2.m_userData === 'footPlayer'){
                 if(obj1.m_userData.name === 'littlePlatform') {
                     obj1.m_isSensor = false;
                 } else if(obj2.m_userData.name === 'littlePlatform') {
@@ -377,8 +380,8 @@ function Game() {
     this.handleInteractions = function() {
         
         if (param.keys[32]) {
-            player.jump();
             param.keys[32] = 0;
+            player.jump();
         }
 
         if (param.keys[81]) {
