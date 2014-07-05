@@ -299,7 +299,7 @@ function Game() {
                 }
             }
 
-            if(obj1.m_userData.name === 'littlePlatform') {
+           /* if(obj1.m_userData.name === 'littlePlatform') {
                 if(obj2.m_userData.name === 'player') {
                     obj1.m_isSensor = true;
                     param.isColliding = true;
@@ -319,7 +319,7 @@ function Game() {
                     obj2.m_isSensor = false;
                     param.isColliding = false;
                 }
-            }
+            }*/
    
             //En utilisant les différentes parties du corps du player 
             /* if(obj1.m_userData.name === 'player' || obj2.m_userData.name === 'player'){
